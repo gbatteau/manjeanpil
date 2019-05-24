@@ -1,3 +1,29 @@
+<div class="home-callout text-center container-fluid">
+  <div class="well2"style="color: white;">
+    <h1>Welcome to Lunchora</h1>
+    <h3 style=" margin-top: 10px;">A site where food lovers can find lunch and dinner daily specials posted by local restaurants.</h3>
+  </div>
+</div>
+<div class="container home-signup-links text-center">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well">
+        <h2 class="text-center"style="margin-top: 15px;">Food Lovers</h2>
+        <h4>Sign up to get food specials near you.</h4>
+        <%= link_to "Customer Sign up", new_user_registration_path(plan: @customer_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="well">
+        <h2 class="text-center"style="margin-top: 15px;">Restaurants</h2>
+        <h4>Sign up to post your daily specials.</h4>
+        <%= link_to "Restaurant Sign up", new_user_registration_path(plan: @restaurant_plan.id), class: 'btn btn-success btn-lg btn-block' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="home-callout container-fluid">
   <div class="head">
     

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190517192435) do
+ActiveRecord::Schema.define(version: 20190613033758) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -20,11 +20,68 @@ ActiveRecord::Schema.define(version: 20190517192435) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "restaurant_name"
+    t.string   "location"
+    t.string   "distance"
+    t.string   "mile"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "country"
+    t.string   "expire"
+    t.string   "price"
+    t.string   "discount"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.string   "restaurant_name"
+    t.string   "prices"
+    t.string   "address"
+    t.string   "distance"
+    t.string   "specials"
+    t.string   "expire"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "restaurant_name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "cuisine"
+    t.string   "website"
+    t.string   "hours"
+    t.string   "phone_number"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,6 +98,10 @@ ActiveRecord::Schema.define(version: 20190517192435) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "plan_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -6,10 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
     <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua:400,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6vkBL1XlhdayivR1R87SGk2va5BTYT20&callback=initMap"async defer></script>
   </head>
 
   <body>
@@ -45,6 +47,7 @@
                   <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
                 <% else %>
                   <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn" %>
+                  
                 <% end %>
               </div>
               <ul class="nav navbar-nav navbar-right">
@@ -59,3 +62,8 @@
     </div>
   </body>
 </html>
+
+
+
+
+

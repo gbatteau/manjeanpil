@@ -6,105 +6,74 @@
 </div>
 <div class="container home-signup-links text-center">
   <div class="row">
-    <div class="col-md-6">
-      <div class="well">
-        <h2 class="text-center"style="margin-top: 15px;">Food Lovers</h2>
-        <h4>Sign up to get food specials near you.</h4>
-        <%= link_to "Customer Sign up", new_user_registration_path(plan: @customer_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
+    <% if user_signed_in? %>
+      <% if current_user.plan_id == 2 %>
+      <div class="col-md-6">
+        <div class="well">
+          
+          <h2 class="text-center"> Your Profile</h2>
+          <% end %>
+          
+          <% if current_user.profile %>
+             <%= link_to "Edit your profile", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+             <%= link_to "View your profile", user_path(id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+             <%= link_to "Post your specials!", new_post_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+          <% else %>
+          <% if current_user.plan_id == 2 %>
+            <%= link_to "Create your profile!", new_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+          <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="well">
-        <h2 class="text-center"style="margin-top: 15px;">Restaurants</h2>
-        <h4>Sign up to post your daily specials.</h4>
-        <%= link_to "Restaurant Sign up", new_user_registration_path(plan: @restaurant_plan.id), class: 'btn btn-success btn-lg btn-block' %>
+      
+    <% else%>
+    
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center"style="margin-top: 15px;">Food Lovers</h2>
+          <h4>Sign up to get food specials near you.</h4>
+          <%= link_to "Customer Sign up", new_user_registration_path(plan: @customer_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
+        </div>
       </div>
-    </div>
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center"style="margin-top: 15px;">Restaurants</h2>
+          <h4>Sign up to post your daily specials.</h4>
+          <%= link_to "Restaurant Sign up", new_user_registration_path(plan: @restaurant_plan.id), class: 'btn btn-success btn-lg btn-block' %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
 
-<div class="home-callout container-fluid">
-  <div class="head">
-    
-      <div class="card" style="width: 18rem;">
-        <img src="https://photos.offerup.com/B0CGAmbnEZjVgWE7_ifiuO_NrCo=/300x225/7796/77965fef5fe848b2ba5d88dd2b6ff96b.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="row">
+  <div class="col-md-4">
+    <div class="posts container">
+      <% @posts.each do |post| %>
+        <section class="post">
+          <!-- post view -->
+          <div class="user">
+        <div class="avatar">
+          <%= link_to post.user do %>
+            <%= image_tag post.user.profile.avatar %>
+          <% end %>
+        </div>
+        <div class="username">
+          <%= post.user.profile.restaurant_name %></br>
+          <div class="city-style">
+          <%= post.user.profile.city %>
+          </div>
         </div>
       </div>
-      
-      <div class="card" style="width: 18rem;">
-        <img src="https://photos.offerup.com/B0CGAmbnEZjVgWE7_ifiuO_NrCo=/300x225/7796/77965fef5fe848b2ba5d88dd2b6ff96b.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+      <%= link_to post.user do %>
+        <%= image_tag post.image, class: 'main-image' %>
+      <% end %>
+      <div class="description">
+        <%= post.description %>
       </div>
-      
-      
-      <div class="card" style="width: 18rem;">
-        <img src="https://photos.offerup.com/B0CGAmbnEZjVgWE7_ifiuO_NrCo=/300x225/7796/77965fef5fe848b2ba5d88dd2b6ff96b.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      
-      <div class="card" style="width: 18rem;">
-        <img src="\Users\1\Downloads\IMG_6586.PNG" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="/" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-     <div class="card" style="width: 18rem;">
-        <img src="https://photos.offerup.com/B0CGAmbnEZjVgWE7_ifiuO_NrCo=/300x225/7796/77965fef5fe848b2ba5d88dd2b6ff96b.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      
-      <div class="card" style="width: 18rem;">
-        <img src="https://photos.offerup.com/B0CGAmbnEZjVgWE7_ifiuO_NrCo=/300x225/7796/77965fef5fe848b2ba5d88dd2b6ff96b.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    
-     <div class="card" style="width: 18rem;">
-        <img src="https://photos.offerup.com/B0CGAmbnEZjVgWE7_ifiuO_NrCo=/300x225/7796/77965fef5fe848b2ba5d88dd2b6ff96b.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      
-      <div class="card" style="width: 18rem;">
-        <img src="https://drive.google.com/file/d/0B5T6CuA87vt7U01pQ21TdzhRTU1pYzBuUUwxQlRJN3hIOENv/view?usp=drivesdk" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    
-    
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-        <div class="item">5</div>
-        <div class="item">6</div>
-        </div>
-</div> 
+        </section>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@
 <%= form_tag distances_path do %>
   <fieldset class="form-group">
   <%= label_tag 'from', 'From' %>
-  <%= select_tag 'from', options_from_collection_for_select(@places, :id, :address), class: "form-control" %>
+  <%= select_tag 'from', options_from_collection_for_select(@places, :id, :name), class: "form-control" %>
 </fieldset>
 
   <fieldset class="form-group">

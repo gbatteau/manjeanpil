@@ -14,17 +14,38 @@
           </a>
       </div>
         <div class="well">
-          <%= @user.profile.address %>
+          <%= @user.profile.street %><br/>
           <%= @user.profile.city %><br/>
           <%= @user.profile.state %><br/>
+          <%= @user.profile.zipcode %><br/>
           <%= @user.profile.cuisine %><br/>
           <%= @user.profile.website %><br/>
           <%= @user.profile.hours %><br/>
-          <%= @user.profile.phone_number %>
+          <%= @user.profile.phone_number %><br/>
+
           
-        </div>
+          <div id="place_longitude">
+              <%= @user.profile.longitude %>
+          </div>
+          <div id="place_latitude">
+              <%= @user.profile.latitude %>
+          </div>
+          <div>
+            Distance to: <%= current_user.distance_to("#{@user.profile.street} #{@user.profile.city} #{@user.profile.state} #{@user.profile.zipcode}") %>
+          </div>
+
       </div>
       
+      
+      <!---google map-->
+      <div class="row">
+        
+        <div id="map" style="width: 100%; height: 400px"></div>
+
+
+        
+      </div>
+
     </div>
   </div>
 </div>    

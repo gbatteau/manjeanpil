@@ -4,11 +4,11 @@ class DistancesController < ApplicationController
   end
 
   def create
-    @from = User.find_by(id: params[:from])
+    @from = Place.find_by(id: params[:from])
     @to = Place.find_by(id: params[:to])
     if @from && @to
       flash[:success] =
-          "The distance between <b>#{@from.address}</b> and <b>#{@to.name}</b> is #{@from.distance_from(@to.to_coordinates)} mi"
+          "The distance between <b>#{@from.name}</b> and <b>#{@to.name}</b> is #{@from.distance_from(@to.to_coordinates)} mi"
     end
     redirect_to new_distance_path
   end

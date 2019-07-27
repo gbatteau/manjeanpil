@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:stripe_card_token, :email, :password, :password_confirmation) }
     end
+    
+  #user Ip added GB
+  
+  before_action :store_request_in_thread
+
+    def store_request_in_thread
+      Thread.current[:request] = request
+    end
 end

@@ -3,5 +3,5 @@
 <p>Address: <%= @place.address %></p>
 <p>Coordinates: <%= @place.latitude %> <%= @place.longitude %></p>
 
-<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&markers=#{@place.latitude},#{@place.longitude}&zoom=7&size=640x400&key=AIzaSyC6vkBL1XlhdayivR1R87SGk2va5BTYT20",
-              class: 'img-fluid img-rounded', alt: "#{@place.name} on the map"%>
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&markers=#{@place.latitude},#{@place.longitude}&zoom=11&size=640x250&key=AIzaSyCLuRtge9JgTIfTTiCORmrMqahc3xW0H9I",
+              class: 'map', alt: "#{@place.name} on the map"%>

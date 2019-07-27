@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  
-  resources :places, except: [:update, :edit, :destroy]
-  resources :distances, only: [:new, :create]
-  
-  
+
   root to: 'pages#home'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   

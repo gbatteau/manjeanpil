@@ -1,6 +1,6 @@
 class Place < ApplicationRecord
   
-  
+  belongs_to :profile
   attr_accessor :raw_address
 
   geocoded_by :raw_address

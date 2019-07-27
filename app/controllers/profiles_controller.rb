@@ -5,8 +5,9 @@ class ProfilesController < ApplicationController
     # Render blank profile details form
     @profile = Profile.new
   end
+
   
-  # POST to /users/:user_id/profile
+   # POST to /users/:user_id/profile
   def create
     # Ensure that we have the user who is filling out form
     @user = User.find( params[:user_id] )
@@ -14,7 +15,7 @@ class ProfilesController < ApplicationController
     @profile = @user.build_profile( profile_params )
     if @profile.save
       flash[:success] = "Profile updated!"
-      redirect_to user_path( params[:user_id] )
+      redirect_to user_path(id: params[:user_id] )
     else
       render action: :new
     end
@@ -25,20 +26,22 @@ class ProfilesController < ApplicationController
     @user = User.find( params[:user_id] )
     @profile = @user.profile
   end
-  
+
   #Get to /users/:user_id/profile/edit
   def update
     @user = User.find( params[:user_id] )
     @profile = @user.profile
     if @profile.update_attributes(profile_params)
       flash[:success] = "Profile updated!"
-      redirect_to user_path(id: params[:user_id])
+      redirect_to user_path(id: params[:user_id] )
     else
       render action: :edit
     end
   end
+  
+  
   private
     def profile_params
-      params.require(:profile).permit(:restaurant_name, :address, :avatar, :city, :state, :cuisine, :website, :hours, :phone_number)
+      params.require(:profile).permit(:restaurant_name, :address, :raw_address, :street, :avatar, :longitude, :latitude, :city, :state, :zipcode, :cuisine, :website, :hours, :phone_number)
     end
 end

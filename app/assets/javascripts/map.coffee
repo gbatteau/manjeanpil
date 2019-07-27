@@ -3,37 +3,23 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+  $('#place_latitude').hide()
+  $('#place_longitude').hide()
   markersArray = []
-  lat_field = $('#place_latitude')
-  lng_field = $('#place_longitude')
-
+  lat_field = parseFloat $('#place_latitude')[0].innerText
+  lng_field = parseFloat $('#place_longitude')[0].innerText
+  
   window.initMap = ->
     if $('#map').size() > 0
+      locationObject = {lat: lat_field, lng: lng_field}
       map = new google.maps.Map document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644}
-        zoom: 8
+        center: locationObject
+        zoom: 15
       }
 
-      map.addListener 'click', (e) ->
-        placeMarkerAndPanTo e.latLng, map
-        updateFields e.latLng
-
-      $('#find-on-map').click (e) ->
-        e.preventDefault()
-        placeMarkerAndPanTo {
-          lat: parseInt lat_field.val(), 10
-          lng: parseInt lng_field.val(), 10
-        }, map
-
-  placeMarkerAndPanTo = (latLng, map) ->
-    markersArray.pop().setMap(null) while(markersArray.length)
-    marker = new google.maps.Marker
-      position: latLng
-      map: map
-
-    map.panTo latLng
-    markersArray.push marker
-
-  updateFields = (latLng) ->
-    lat_field.val latLng.lat()
-    lng_field.val latLng.lng()
+      marker = new google.maps.Marker({
+        position: locationObject,
+        map: map,
+      })
+      
+      markersArray.push marker

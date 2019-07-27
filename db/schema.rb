@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190613033758) do
+ActiveRecord::Schema.define(version: 20190726015832) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -64,12 +64,14 @@ ActiveRecord::Schema.define(version: 20190613033758) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "street"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "restaurant_name"
-    t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "cuisine"
@@ -82,6 +84,10 @@ ActiveRecord::Schema.define(version: 20190613033758) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "zipcode"
+    t.string   "street"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,6 +108,8 @@ ActiveRecord::Schema.define(version: 20190613033758) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.decimal  "lat"
+    t.decimal  "long"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

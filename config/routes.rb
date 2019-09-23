@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   end
   
+  resources :locations
+  
   get 'about', to: 'pages#about'
   resources :contacts, only: :create
-  resources :posts, only: [:new, :create]
+  resources :posts
   get 'contact-us', to: 'contacts#new', as: 'new_contact'
 end

@@ -1,0 +1,8 @@
+<% if @profiles.any? %>
+<h1>Profiles</h1>
+    <% @profiles.each do |profile| %>
+      <%= profile.restaurant_name %>
+    <% end %>
+<% else %>
+ <h2>There are no results</h2>
+<% end %>

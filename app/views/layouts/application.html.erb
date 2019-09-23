@@ -39,16 +39,17 @@
           </div>
           
           <!-- Collect the nav links, forms, and other content for toggling -->
-            <form class="navbar-header container-fluid">
+            <%= form_tag locations_path, method: :get, class: "navbar-header container-fluid" do |f| %> 
               <div class="form-grouptotal ">
-                <%= form_tag users_path, method: :get do |f| %>  
+    
                   <div class="form-group1">
-                  <%= text_field_tag :search, nil, placeholder: " Lunch, HappyHour, etc.", class: "form-control" %></div>
-                  <%= text_field_tag :location, nil, placeholder: " Dallas, etc.", class: "form-control" %>
+                  <%= text_field_tag :search, params[:search], placeholder: " Lunch, Happy-Hour, etc.", class: "form-control" %></div>
+                  <%= text_field_tag :location, params[:search], placeholder: " Dallas, etc.", class: "form-control" %>
                   <%= submit_tag 'Go', class: "btn btn-default" %>
-                <% end %>
+               
               </div>
-            </form>
+            <% end %>
+
             <div class="collapse navbar-collapse" id="main-nav-collapse">
               <div class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>

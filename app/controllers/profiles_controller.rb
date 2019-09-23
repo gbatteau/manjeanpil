@@ -5,7 +5,14 @@ class ProfilesController < ApplicationController
     # Render blank profile details form
     @profile = Profile.new
   end
-
+#trying search gb
+  def index
+    if params[:search].present?
+      @locations = Location.near(params[:search], 10, :order => :distance)
+    else
+      @locations = Location.all
+    end
+  end
   
    # POST to /users/:user_id/profile
   def create

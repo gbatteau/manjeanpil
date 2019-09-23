@@ -1,6 +1,70 @@
-<%= form_tag posts_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Near", :name => nil %>
-  </p>
-<% end %>
+<div class="home-callout text-center container-fluid">
+  <div class="well2"style="color: white;">
+    <h1>Welcome to Lunchora</h1>
+    <h3 style=" margin-top: 10px;">A site where food lovers can find lunch and dinner daily specials posted by local restaurants.</h3>
+  </div>
+
+<nav class="panel">
+  <p class="text-uppercase has-text-gray pv1 f6">filter by special type</p>
+    <div class="text-center home-signup-links container-fluid">
+      <div class="col-md-2">
+          <%= link_to 'Lunch', posts_path(special_type: "Lunch"), class: "btn btn-primary" %>   <%= link_to 'Happy-Hour', posts_path(special_type: "Happy-Hour"), class: "btn btn-primary" %>   <%= link_to 'Dinner', posts_path(special_type: "Dinner"), class: "btn btn-primary" %>
+      </div>
+    </div>
+</nav>
+</div>
+
+<div class="card-columns">
+  <div class="wrapper">
+    <div class="col-md">
+      <div class="posts container" style ="display: flex; flex-wrap: wrap;margin-top: 0px;">
+        <% @posts.each do |post| %>
+          <section class="post" style ="width: 340px; 
+            min-width: 340px;     
+            border-left-width: 1px;
+            border-right-width: 1px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: block;
+            margin-right: 5px;
+            border-bottom-width: 2px;
+            border-top-width: 2px;
+            margin-left: 5px;
+            border-radius: 20px;"> 
+            <!-- post view -->
+            <div class="user">
+          <div class="avatar">
+            <%= link_to post.user do %>
+            <% if post.user.profile %>
+              <%= image_tag post.user.profile.avatar.url %>
+            <% end %>
+            <% end %>
+          </div>
+          <div class="username">
+            <% if post.user.profile %>
+            <%= post.user.profile.restaurant_name %> <div class="btn btn-danger" style="margin-left: 100px;">
+            <%= special_type(post.special_type) %>
+            </div> </br>
+            <div class="city-style">
+            <% if post.user.profile %>  
+            <%= post.user.profile.street %>, <%= post.user.profile.city %><pan style="color: #5f882b;"> ፨ </pan><pan><% if user_signed_in? %><%= current_user.distance_to("#{post.user.profile.latitude} #{post.user.profile.longitude}").round(1) %> mi </pan>
+            <% end %>
+            <% end %>
+            </div>
+            <% else %>
+            <h1><%= post.user.inspect %></h1>
+            <% end %>
+          </div>
+        </div>
+        <%= link_to post.user do %>
+          <%= image_tag post.image, class: 'main-image' %>
+        <% end %>
+        <div class="description">
+          <%= post.description %>
+        </div>
+          </section>
+        <% end %>
+      </div> 
+    </div>
+  </div>
+</div>

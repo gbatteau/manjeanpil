@@ -12,14 +12,17 @@ class User < ApplicationRecord
   
   
   #ip look up added gb
+ 
   
-  geocoded_by :ip_lookup
+  geocoded_by :ip_lookup, :latitude => :lat, :longitude => :long
   after_validation :geocode
   
-    def ip_lookup
+  private
+  
+  def ip_lookup
     ip = Thread.current[:request].remote_ip
     if ip == '127.0.0.1' || ip == '::1'
-      '70.184.119.26'
+      '169.254.187.96/16'
     else
       ip
     end

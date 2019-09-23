@@ -1,8 +1,5 @@
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
-
-<h3>Nearby Posts</h3>
-<ul>
-<% for location in @post.nearbys(10) %>
-  <li><%= link_to post.address, post %> (<%= post.distance.round(2) %> miles)</li>
-<% end %>
-</ul>
+<div class="delete">
+  <% if current_user.posts.exists?(@post.id) %>
+    <%= link_to 'Remove', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>

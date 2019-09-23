@@ -1,3 +1,47 @@
-<% @profiles.each do |restaurant| %>
-  <%= restaurant.name %>
+<% if @profiles.any? %>
+<% @profiles.each do |profile| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <%= image_tag profile.avatar.url, class: 'avatar-img' %>
+      </div>
+    
+        <div class="col-md-6">
+      
+      
+          <div class="user-wrapper">
+            <h1 class="username"><%= profile.restaurant_name %></h1>
+            <a class="edit-profile">
+            <button>Edit Profile</button>
+            </a>
+          </div>
+            <div class="well">
+              <%= profile.street %><br/>
+              <%= profile.city %><br/>
+              <%= profile.state %><br/>
+              <%= profile.zipcode %><br/>
+              <%= profile.cuisine %><br/>
+              <%= profile.website %><br/>
+              <%= profile.hours %><br/>
+              <%= profile.phone_number %><br/>
+
+          
+            <div id="place_longitude">
+              <%= profile.longitude %>
+            </div>
+            <div id="place_latitude">
+              <%= profile.latitude %>
+            </div>
+              <div>
+            
+                Distance to: <% if user_signed_in? %><%= current_user.distance_to("#{profile.latitude} #{profile.longitude}").round(1) %> mi
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+    <% end %>
+<% else %>
+ <h2>There are no results</h2>
 <% end %>

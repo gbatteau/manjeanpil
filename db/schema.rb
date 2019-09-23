@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190726015832) do
+ActiveRecord::Schema.define(version: 20190913064108) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -67,6 +67,10 @@ ActiveRecord::Schema.define(version: 20190726015832) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "special_type"
   end
 
   create_table "profiles", force: :cascade do |t|

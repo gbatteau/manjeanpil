@@ -8,5 +8,13 @@ class Post < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   
   
-
+  geocoded_by :address, :latitude => :lat, :longitude => :long
+  after_validation :geocode, :if => :address_changed?
+  
+  def address
+    [street, city, state, zipcode].compact.join(', ')
+  end
+  
+  #gb adding Category type
+  SPECIAL_TYPES = ["Lunch", "Happy-Hour", "Dinner"]
 end

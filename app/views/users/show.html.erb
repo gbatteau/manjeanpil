@@ -31,7 +31,9 @@
               <%= @user.profile.latitude %>
           </div>
           <div>
-            Distance to: <%= current_user.distance_to("#{@user.profile.street} #{@user.profile.city} #{@user.profile.state} #{@user.profile.zipcode}") %>
+            
+            Distance to: <% if user_signed_in? %><%= current_user.distance_to("#{@user.profile.latitude} #{@user.profile.longitude}").round(1) %> mi
+            <% end %>
           </div>
 
       </div>
@@ -49,14 +51,14 @@
     </div>
   </div>
 </div>    
+
+
+
+
 <div class="user-tabs">
   <a class="tab active" href="">
     <i class="fa fa-th"></i>
     POSTS
-  </a>
-  <a class="tab" href="">
-    <i class="fa fa-tv"></i>
-    IGTV
   </a>
   <a class="tab" href="">
     <i class="fa fa-bookmark"></i>
@@ -64,19 +66,11 @@
   </a>
   <a class="tab" href="">
     <i class="fa fa-tag"></i>
-    TAGGED
+    ORDERED
   </a>
 </div>
 
+
+
 <!-- for Picture post underneath profile -->
-<div class="user-images">
-  <div class="wrapper">
-    <img src="your_image_url">
-  </div>
-  <div class="wrapper">
-    <img src="your_image_url">
-  </div>
-  <div class="wrapper">
-    <img src="your_image_url">
-  </div>
-</div>
+

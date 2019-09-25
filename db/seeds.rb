@@ -56,3 +56,17 @@ end
 
 puts "50 places created"
 
+50.times do
+  Post.create!(
+    restaurant_name: Faker::Company.name,
+    description: Faker::Company.bs,
+    street: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zipcode: Faker::Address.zip,
+    user: User.all.sample
+  )
+end
+
+puts "50 posts created"
+

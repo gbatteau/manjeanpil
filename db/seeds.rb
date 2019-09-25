@@ -39,3 +39,20 @@ restaurant_user = User.create!(
 )
 
 puts "2 demo users created"
+
+
+50.times do
+  Place.create!(
+    name: Faker::Company.name,
+    restaurant_name: Faker::Company.name,
+    street: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip_code: Faker::Address.zip,
+    country: "USA",
+    user_id: User.all.sample.id
+  )
+end
+
+puts "50 places created"
+

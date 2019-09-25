@@ -1,5 +1,4 @@
 class Place < ApplicationRecord
-  
   belongs_to :profile
   attr_accessor :raw_address
 

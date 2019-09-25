@@ -18,6 +18,7 @@ gem 'paperclip', '4.3.6'
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug', platform: :mri
+  gem 'faker'
 end
 
 group :development do

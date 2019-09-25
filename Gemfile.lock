@@ -76,6 +76,8 @@ GEM
       multi_json
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (2.2.1)
+      i18n (>= 0.8)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
@@ -218,6 +220,7 @@ DEPENDENCIES
   byebug
   coffee-rails (= 4.2.1)
   devise (= 4.2.0)
+  faker
   geocoder (~> 1.5, >= 1.5.1)
   google_distance_matrix
   hirb (= 0.7.3)

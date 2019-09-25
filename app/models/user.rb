@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :plan
   has_one :profile
+  has_many :posts, dependent: :destroy
 
   geocoded_by :ip_lookup, :latitude => :lat, :longitude => :long
   after_validation :geocode

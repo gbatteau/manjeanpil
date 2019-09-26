@@ -1,28 +1,28 @@
-
-
 <div class="home-callout text-center container-fluid">
+
   <div class="well2"style="color: white;">
     <h1>Welcome to Lunchora</h1>
     <h3 style=" margin-top: 10px;">A site where food lovers can find lunch and dinner daily specials posted by local restaurants.</h3>
   </div>
-<nav class="panel">
-  <p class="text-uppercase has-text-gray text-center pv1 f6">filter by special type</p>
-    <div class="text-center home-signup-links container-fluid">
-      <div class="col-md-2">
-          <%= link_to 'Lunch', posts_path(special_type: "Lunch"), class: "btn btn-primary" %>   <%= link_to 'Happy-Hour', posts_path(special_type: "Happy-Hour"), class: "btn btn-primary" %>   <%= link_to 'Dinner', posts_path(special_type: "Dinner"), class: "btn btn-primary" %>
+
+  <nav class="panel">
+    <p class="text-uppercase has-text-gray text-center pv1 f6">filter by special type</p>
+      <div class="text-center home-signup-links container-fluid">
+        <div class="col-md-2">
+            <%= link_to 'Lunch', posts_path(special_type: "Lunch"), class: "btn btn-primary" %>   <%= link_to 'Happy-Hour', posts_path(special_type: "Happy-Hour"), class: "btn btn-primary" %>   <%= link_to 'Dinner', posts_path(special_type: "Dinner"), class: "btn btn-primary" %>
+        </div>
       </div>
-    </div>
-</nav>
+  </nav>
+
 <div class="container home-signup-links text-center">
   <div class="row">
     <% if user_signed_in? %>
       <% if current_user.plan_id == 2 %>
       <div class="col-md-6">
         <div class="well">
-          
+
           <h2 class="text-center"> Your Profile</h2>
           <% end %>
-          
           <% if current_user.profile %>
              <%= link_to "Edit your profile", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
              <%= link_to "View your profile", user_path(id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
@@ -34,9 +34,8 @@
           <% end %>
         </div>
       </div>
-      
+
     <% else%>
-    
       <div class="col-md-6">
         <div class="well">
           <h2 class="text-center"style="margin-top: 15px;">Food Lovers</h2>
@@ -62,7 +61,7 @@
       <div class="posts container" style ="display: flex; flex-wrap: wrap;">
         <% @posts.each do |post| %>
           <section class="post" style ="width: 340px; 
-            min-width: 340px;     
+            min-width: 340px;
             border-left-width: 1px;
             border-right-width: 1px;
             margin-top: 20px;
@@ -72,14 +71,14 @@
             border-bottom-width: 2px;
             border-top-width: 2px;
             margin-left: 5px;
-            border-radius: 20px;"> 
+            border-radius: 20px;">
             <!-- post view -->
             <div class="user">
           <div class="avatar">
             <%= link_to post.user do %>
-            <% if post.user.profile %>
-              <%= image_tag post.user.profile.avatar.url %>
-            <% end %>
+              <% if post.user.profile %>
+                <%= image_tag post.user.profile.avatar.url %>
+              <% end %>
             <% end %>
           </div>
           <div class="username">

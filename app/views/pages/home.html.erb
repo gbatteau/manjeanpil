@@ -93,9 +93,17 @@
             </div></br>
             <div class="city-style">
               <% if post.user.profile %>
-                <%= post.user.profile.street %>, <%= post.user.profile.city %><pan style="color: #5f882b;"> ፨ </pan><pan><% if user_signed_in? %><%= current_user.distance_to("#{post.user.profile.latitude} #{post.user.profile.longitude}").round(2) %> mi </pan>
+                <%= post.user.profile.street %>, <%= post.user.profile.city %>
+                <span style="color: #5f882b;">
+                  ፨
+                </span>
+
+                <% if user_signed_in? && post.user.profile.latitude && post.user.profile.longitude && current_user.lat && current_user.long %>
+                  <span>
+                    <%= current_user.distance_to("#{post.user.profile.latitude} #{post.user.profile.longitude}").round(2) %> mi
+                  </span>
+                <% end %>
               <% end %>
-            <% end %>
             </div>
             <% end %>
           </div>

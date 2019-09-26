@@ -19,6 +19,7 @@ group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug', platform: :mri
   gem 'faker'
+  gem 'rubocop', require: false
 end
 
 group :development do

@@ -29,8 +29,12 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @user = User.find( params[:user_id] )
-    @profile = @user.profile
+    if current_user.profile && current_user.profile.id == params[:id].to_i
+      @user = current_user
+      @profile = current_user.profile
+    else
+      redirect_to root_path
+    end
   end
 
   def update

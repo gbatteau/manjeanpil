@@ -6,12 +6,17 @@
   </div>
 
   <nav class="panel">
-    <p class="text-uppercase has-text-gray text-center pv1 f6">filter by special type</p>
-      <div class="text-center home-signup-links container-fluid">
-        <div class="col-md-2">
-            <%= link_to 'Lunch', posts_path(special_type: "Lunch"), class: "btn btn-primary" %>   <%= link_to 'Happy-Hour', posts_path(special_type: "Happy-Hour"), class: "btn btn-primary" %>   <%= link_to 'Dinner', posts_path(special_type: "Dinner"), class: "btn btn-primary" %>
-        </div>
+    <p class="text-uppercase has-text-gray text-center pv1 f6">
+      filter by special type
+    </p>
+
+    <div class="text-center home-signup-links container-fluid">
+      <div class="col-md-12" style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+        <%= link_to 'Lunch', posts_path(special_type: "Lunch"), class: "btn btn-primary", style: "margin-left: 10px; margin-right: 10px;" %>
+        <%= link_to 'Happy-Hour', posts_path(special_type: "Happy-Hour"), class: "btn btn-primary", style: "margin-left: 10px; margin-right: 10px;" %>
+        <%= link_to 'Dinner', posts_path(special_type: "Dinner"), class: "btn btn-primary", style: "margin-left: 10px; margin-right: 10px;" %>
       </div>
+    </div>
   </nav>
 
 <div class="container home-signup-links text-center">

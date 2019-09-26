@@ -36,13 +36,15 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user = User.find( params[:user_id] )
-    @profile = @user.profile
-    if @profile.update_attributes(profile_params)
-      flash[:success] = "Profile updated!"
-      redirect_to user_path(id: params[:user_id] )
+    if current_user.profile && current_user.profile.id == params[:id].to_i
+      if @profile.update(profile_params)
+        flash[:success] = "Profile updated!"
+        redirect_to root_path
+      else
+        render action: :edit
+      end
     else
-      render action: :edit
+      redirect_to root_path
     end
   end
 

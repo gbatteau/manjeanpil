@@ -1,4 +1,4 @@
-<%= form_for @profile, url: user_profile_path do |f| %>
+<%= form_for @profile do |f| %>
   <div class="form-group">
     <%= f.label :restaurant_name %>
     <%= f.text_field :restaurant_name, class: 'form-control' %>
@@ -39,7 +39,7 @@
     <%= f.label :phone_number %>
     <%= f.text_area :phone_number, class: 'form-control' %>
   </div>
-  
+
   <div class="form-group">
     <%= f.submit "Create Profile", class: 'btn btn-primary' %>
   </div>

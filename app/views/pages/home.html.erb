@@ -29,7 +29,7 @@
           <h2 class="text-center"> Your Profile</h2>
           <% end %>
           <% if current_user.profile %>
-             <%= link_to "Edit your profile", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+             <%= link_to "Edit your profile", edit_profile_path(current_user.profile), class: 'btn btn-default btn-lg btn-block' %>
              <%= link_to "View your profile", user_path(id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
              <%= link_to "Post your specials!", new_post_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
           <% else %>

@@ -54,16 +54,19 @@ end
 
 puts "50 posts created"
 
-# .times do
-#   Post.create!(
-#     restaurant_name: Faker::Company.name,
-#     description: Faker::Company.bs,
-#     street: Faker::Address.street_address,
-#     city: Faker::Address.city,
-#     state: Faker::Address.state,
-#     zipcode: Faker::Address.zip,
-#     user: User.all.sample
-#   )
-# end
-#
-# puts "50 posts created"
+User.all.joins(:plan).where("plans.name": 'restaurant').each do |user|
+  Profile.create!(
+    user: user,
+    restaurant_name: Faker::Company.name,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    street: Faker::Address.street_address,
+    zipcode: Faker::Address.zip,
+    cuisine: Faker::Restaurant.type,
+    website: Faker::Internet.url,
+    hours: "9am - 5pm",
+    phone_number: Faker::PhoneNumber.phone_number
+  )
+end
+
+puts "Profiles created for all restaurant users"

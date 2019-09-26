@@ -92,13 +92,11 @@
             <%= special_type(post.special_type) %>
             </div></br>
             <div class="city-style">
-            <% if post.user.profile %>
-            <%= post.user.profile.street %>, <%= post.user.profile.city %><pan style="color: #5f882b;"> ፨ </pan><pan><% if user_signed_in? %><%= current_user.distance_to("#{post.user.profile.latitude} #{post.user.profile.longitude}").round(2) %> mi </pan>
-            <% end %>
+              <% if post.user.profile %>
+                <%= post.user.profile.street %>, <%= post.user.profile.city %><pan style="color: #5f882b;"> ፨ </pan><pan><% if user_signed_in? %><%= current_user.distance_to("#{post.user.profile.latitude} #{post.user.profile.longitude}").round(2) %> mi </pan>
+              <% end %>
             <% end %>
             </div>
-            <% else %>
-            <h1><%= post.user.inspect %></h1>
             <% end %>
           </div>
         </div>

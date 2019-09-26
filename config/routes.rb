@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resource :profile
+  resource :profiles
   resources :users, only: [:show]
   resources :locations
   get 'about', to: 'pages#about'

@@ -1,11 +1,6 @@
 class ProfilesController < ApplicationController
- 
-  # GET to /users/:user_id/profile/new
-  def new
-    # Render blank profile details form
-    @profile = Profile.new
-  end
-#trying search gb
+  before_action :authenticate_user!, except: [:index]
+
   def index
     if params[:search].present?
       @locations = Location.near(params[:search], 10, :order => :distance)
@@ -13,9 +8,14 @@ class ProfilesController < ApplicationController
       @locations = Location.all
     end
   end
-  
-   # POST to /users/:user_id/profile
+
+  def new
+    @profile = Profile.new
+  end
+
   def create
+    # TODO
+    # get user from current_user
     # Ensure that we have the user who is filling out form
     @user = User.find( params[:user_id] )
     # Create profile linked to this specific user
@@ -27,14 +27,12 @@ class ProfilesController < ApplicationController
       render action: :new
     end
   end
-  
-  #Get to /users/:user_id/profile/edit
+
   def edit
     @user = User.find( params[:user_id] )
     @profile = @user.profile
   end
 
-  #Get to /users/:user_id/profile/edit
   def update
     @user = User.find( params[:user_id] )
     @profile = @user.profile
@@ -45,10 +43,24 @@ class ProfilesController < ApplicationController
       render action: :edit
     end
   end
-  
-  
+
   private
     def profile_params
-      params.require(:profile).permit(:restaurant_name, :address, :raw_address, :street, :avatar, :longitude, :latitude, :city, :state, :zipcode, :cuisine, :website, :hours, :phone_number)
+      params.require(:profile).permit(
+        :restaurant_name,
+        :address,
+        :raw_address,
+        :street,
+        :avatar,
+        :longitude,
+        :latitude,
+        :city,
+        :state,
+        :zipcode,
+        :cuisine,
+        :website,
+        :hours,
+        :phone_number
+      )
     end
 end

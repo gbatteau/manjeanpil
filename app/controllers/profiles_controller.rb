@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_profile, only: [:update, :edit]
 
   def index
     if params[:search].present?
@@ -29,10 +30,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    if current_user.profile && current_user.profile.id == params[:id].to_i
-      @user = current_user
-      @profile = current_user.profile
-    else
+    if !current_user.profile && current_user.profile.id != params[:id].to_i
       redirect_to root_path
     end
   end
@@ -49,6 +47,11 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+    def set_profile
+      @profile = Profile.find(params[:id])
+    end
+
     def profile_params
       params.require(:profile).permit(
         :restaurant_name,

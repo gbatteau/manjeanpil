@@ -7,9 +7,11 @@
       <div class="user-wrapper">
         <h1 class="username"><%= @user.profile.restaurant_name %></h1>
 
-        <a class="edit-profile">
-          <button>Edit Profile</button>
-        </a>
+        <% if current_user && current_user == @user %>
+          <a class="edit-profile">
+            <button>Edit Profile</button>
+          </a>
+        <% end %>
       </div>
 
       <div class="well">

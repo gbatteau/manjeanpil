@@ -48,7 +48,7 @@ puts "2 demo users created"
     city: Faker::Address.city,
     state: Faker::Address.state,
     zipcode: Faker::Address.zip,
-    user: User.all.sample
+    user: User.where(plan: restaurant_plan).sample
   )
 end
 

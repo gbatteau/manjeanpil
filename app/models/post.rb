@@ -9,7 +9,4 @@ class Post < ApplicationRecord
   def address
     [street, city, state, zipcode].compact.join(', ')
   end
-
-  #gb adding Category type
-  SPECIAL_TYPES = ["Lunch", "Happy-Hour", "Dinner"]
 end

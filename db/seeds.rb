@@ -40,6 +40,8 @@ restaurant_user = User.create!(
 
 puts "2 demo users created"
 
+SPECIAL_TYPES = ["Lunch", "Happy-Hour", "Dinner"]
+
 50.times do
   Post.create!(
     restaurant_name: Faker::Company.name,
@@ -48,6 +50,7 @@ puts "2 demo users created"
     city: Faker::Address.city,
     state: Faker::Address.state,
     zipcode: Faker::Address.zip,
+    special_type: SPECIAL_TYPES.sample,
     user: User.where(plan: restaurant_plan).sample
   )
 end

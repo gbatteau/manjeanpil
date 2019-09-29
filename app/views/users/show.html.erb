@@ -34,7 +34,7 @@
 
         <div>
           Distance to: 
-          <% if user_signed_in? %>
+          <% if user_signed_in? && @user.profile.latitude && @user.profile.longitude %>
             <%= current_user.distance_to("#{@user.profile.latitude} #{@user.profile.longitude}").round(1) %> mi
           <% end %>
         </div>

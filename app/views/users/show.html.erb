@@ -8,9 +8,9 @@
         <h1 class="username"><%= @user.profile.restaurant_name %></h1>
 
         <% if current_user && current_user == @user %>
-          <a class="edit-profile">
-            <button>Edit Profile</button>
-          </a>
+          <%= link_to edit_profile_path(@user.profile), class: 'edit-profile' do %>
+            <button class="">Edit Profile</button>
+          <% end %>
         <% end %>
       </div>
 
@@ -33,8 +33,8 @@
         </div>
 
         <div>
-          Distance to: 
-          <% if user_signed_in? && @user.profile.latitude && @user.profile.longitude %>
+          <% if user_signed_in? && current_user.lat && current_user.long && @user.profile.latitude && @user.profile.longitude %>
+            Distance to: 
             <%= current_user.distance_to("#{@user.profile.latitude} #{@user.profile.longitude}").round(1) %> mi
           <% end %>
         </div>

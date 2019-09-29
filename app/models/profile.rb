@@ -4,11 +4,12 @@ class Profile < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-  geocoded_by :address
+  geocoded_by :address, latitude: :latitude, longitude: :longitude
   after_validation :geocode
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
+
   validates_presence_of :restaurant_name
   validates_presence_of :street
   validates_presence_of :city

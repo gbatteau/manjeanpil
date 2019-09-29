@@ -88,23 +88,29 @@
           </div>
           <div class="username">
             <% if post.user.profile %>
-            <%= post.user.profile.restaurant_name %> <div class="btn btn-danger" style="margin-left: 100px;">
-            <%= special_type(post.special_type) %>
-            </div></br>
-            <div class="city-style">
-              <% if post.user.profile %>
-                <%= post.user.profile.street %>, <%= post.user.profile.city %>
-                <span style="color: #5f882b;">
-                  ፨
-                </span>
+              <%= post.user.profile.restaurant_name %>
 
-                <% if user_signed_in? && post.user.profile.latitude && post.user.profile.longitude && current_user.lat && current_user.long %>
-                  <span>
-                    <%= current_user.distance_to("#{post.user.profile.latitude} #{post.user.profile.longitude}").round(2) %> mi
+              <div class="btn btn-danger" style="margin-left: 100px;">
+                <%= special_type(post.special_type) %>
+              </div>
+
+              </br>
+
+              <div class="city-style">
+                <% if post.user.profile %>
+                  <%= post.user.profile.street %>, <%= post.user.profile.city %>
+
+                  <span style="color: #5f882b;">
+                    ፨
                   </span>
+
+                  <% if user_signed_in? && post.user.profile.latitude && post.user.profile.longitude && current_user.lat && current_user.long %>
+                    <span>
+                      <%= current_user.distance_to("#{post.user.profile.latitude} #{post.user.profile.longitude}").round(2) %> mi
+                    </span>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
             <% end %>
           </div>
         </div>

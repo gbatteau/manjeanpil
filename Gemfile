@@ -33,7 +33,6 @@ gem 'geocoder', '~> 1.5', '>= 1.5.1'
 gem 'google_distance_matrix'
 gem 'searchkick'
 
-
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end

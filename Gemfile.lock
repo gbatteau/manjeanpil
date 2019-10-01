@@ -67,6 +67,10 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     elasticsearch (7.2.0)
       elasticsearch-api (= 7.2.0)
       elasticsearch-transport (= 7.2.0)
@@ -235,6 +239,7 @@ DEPENDENCIES
   byebug
   coffee-rails (= 4.2.1)
   devise (= 4.2.0)
+  dotenv-rails
   faker
   geocoder (~> 1.5, >= 1.5.1)
   google_distance_matrix

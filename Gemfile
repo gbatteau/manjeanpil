@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'rails', '5.0.0'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'puma', '3.4.0'
 gem 'sass-rails', '5.0.6'
 gem 'uglifier', '3.0.0'

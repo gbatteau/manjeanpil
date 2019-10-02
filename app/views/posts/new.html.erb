@@ -2,16 +2,6 @@
   <div class="form-upload container well"
        style="margin-top: 100px;margin-left: 15px;margin-right: 15px;"
   >
-    <div class='d-none'>
-      <%= f.text_field :user_id, value: current_user.id,  class:'d-none' %>
-      <%= f.text_field :street, value: current_user.profile.street,  class:'d-none' %>
-      <%= f.text_field :city, value: current_user.profile.city,  class:'d-none' %>
-      <%= f.text_field :state, value: current_user.profile.state,  class:'d-none' %>
-      <%= f.text_field :zipcode, value: current_user.profile.zipcode,  class:'d-none' %>
-      <%= f.text_field :latitude, value: current_user.profile.latitude,  class:'d-none' %>
-      <%= f.text_field :longitude, value: current_user.profile.longitude,  class:'d-none' %>
-    </div>
-
     <div class="form-group">
       <%= f.file_field :image %>
     </div>

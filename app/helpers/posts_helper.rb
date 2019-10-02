@@ -1,5 +1,4 @@
 module PostsHelper
-  
   def special_type(special_type)
     if special_type == "Lunch"
       content_tag :span, "#{special_type}", class: "tag is-primary"
@@ -11,6 +10,12 @@ module PostsHelper
       ""
     end
   end
-    
-    
+
+  def list_of_special_types
+    [
+      "Lunch",
+      "Happy-Hour",
+      "Dinner"
+    ]
+  end
 end

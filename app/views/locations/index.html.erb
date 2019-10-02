@@ -1,6 +1,8 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
-    <%= post.inspect %>
+    <div style="margin-top: 100px;">
+      <%= post.inspect %>
+    </div>
   <% end %>
 <% else %>
  <h2>There are no results</h2>

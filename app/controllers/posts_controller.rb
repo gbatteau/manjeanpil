@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
+
   def create
     if current_user.profile
       @post           = Post.new(post_params)

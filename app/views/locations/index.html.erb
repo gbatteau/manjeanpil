@@ -1,5 +1,7 @@
-<% if @posts.any? %>
-  <%= render partial: 'shared/post_cards', locals: { posts: @posts } %>
-<% else %>
- <h2>There are no results</h2>
-<% end %>
+<div style="margin-top: 60px;">
+  <% if @posts.any? %>
+    <%= render partial: 'shared/post_cards', locals: { posts: @posts } %>
+  <% else %>
+   <h2>There are no results</h2>
+  <% end %>
+</div>

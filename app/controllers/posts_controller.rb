@@ -1,5 +1,17 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, except: [:index]
+
+  def index
+    if(params.has_key?(:special_type))
+      @posts = Post.where(special_type: params[:special_type]).order("created_at desc")
+    else
+      @posts = Post.all.order("created_at desc")
+    end
+  end
+
+  def new
+    @post = Post.new
+  end
 
   def create
     if current_user.profile
@@ -20,13 +32,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def index
-    if(params.has_key?(:special_type))
-      @posts = Post.where(special_type: params[:special_type]).order("created_at desc")
-    else
-      @posts = Post.all.order("created_at desc")
-    end
-  end
 
     private
 

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_post, only: [:edit, :update]
 
   def index
     if(params.has_key?(:special_type))
@@ -32,8 +33,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
 
     private
+
+      def set_post
+        @post = Post.find(params[:id])
+      end
 
       def post_params
         params.require(:post).permit(

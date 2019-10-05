@@ -1,9 +1,5 @@
 <% if @posts.any? %>
-  <% @posts.each do |post| %>
-    <div style="margin-top: 100px;">
-      <%= post.inspect %>
-    </div>
-  <% end %>
+  <%= render partial: 'shared/post_cards', locals: { posts: @posts } %>
 <% else %>
  <h2>There are no results</h2>
 <% end %>

@@ -22,7 +22,7 @@ h3 {
 }
 
 .navbar-default .navbar-brand {
-  color: #5f882b;
+  color: $primary;
 }
 
 .navbar-brand {
@@ -31,13 +31,13 @@ h3 {
   padding-left: 15px;
   margin-right: 50px;
   height: 52px;
-  color: #5f882b;
+  color: $primary;
   font-size: 24px;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #5f882b;
+  color: $primary;
   background-color: transparent;
 }
 
@@ -99,7 +99,7 @@ h3 {
   padding-left: 6px;
   padding-right: 6px;
   color: #ffff;
-  background-color: #5f882b;
+  background-color: $primary;
   border-color: #ccc;
 }
 
@@ -327,7 +327,11 @@ img {
 }
 
 .btn {
+  transition: 0.5s ease-in-out !important;
   &:visited {
     color: white !important;
+  }
+  &:hover {
+    background-color: $primary-dark !important;
   }
 }

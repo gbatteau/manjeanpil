@@ -18,7 +18,7 @@
             <!-- post view -->
             <div class="user">
           <div class="avatar">
-            <%= link_to post.user do %>
+            <%= link_to post do %>
               <% if post.user.profile %>
                 <%= image_tag post.user.profile.avatar.url %>
               <% end %>
@@ -52,7 +52,7 @@
             <% end %>
           </div>
         </div>
-        <%= link_to post.user do %>
+        <%= link_to post do %>
           <%= image_tag post.image, class: 'main-image' %>
         <% end %>
         <div class="description">

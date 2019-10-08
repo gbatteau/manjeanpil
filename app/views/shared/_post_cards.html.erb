@@ -42,8 +42,16 @@
             <%= link_to post do %>
               <%= image_tag post.image, class: 'main-image' %>
             <% end %>
-            <div class="description">
-              <%= post.description %>
+
+            <div>
+              <div class="counter-label">
+                <div><%= fa_icon "fire" %></div>
+                <div><%= post.impressions_count %></div>
+              </div>
+
+              <div class="description">
+                <%= post.description %>
+              </div>
             </div>
           </div>
         <% end %>

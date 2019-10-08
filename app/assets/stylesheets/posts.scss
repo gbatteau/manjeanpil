@@ -99,10 +99,11 @@
 
     .counter-label {
       text-align: center;
-      background-color: red;
+      background-color: $primary;
       padding: 5px;
       margin: 0px 5px;
       color: white;
+      border-radius: 3px;
     }
   }
 }

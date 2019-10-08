@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jordanhudgens/impressionist
+  revision: ec0491110f7a34f6c9a4c2d82e50c1161e9b65b0
+  specs:
+    impressionist (1.6.0)
+      nokogiri (~> 1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -244,6 +251,7 @@ DEPENDENCIES
   geocoder (~> 1.5, >= 1.5.1)
   google_distance_matrix
   hirb (= 0.7.3)
+  impressionist!
   jbuilder (= 2.5.0)
   jquery-rails (= 4.1.1)
   listen (= 3.0.5)

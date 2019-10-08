@@ -37,3 +37,6 @@ gem 'searchkick'
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
+
+gem 'impressionist', git: 'https://github.com/jordanhudgens/impressionist'
+

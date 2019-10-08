@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
-  before_action :set_post, only: [:edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_post, only: [:edit, :update, :show]
 
   def index
     if(params.has_key?(:special_type))
@@ -8,6 +8,9 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.order("created_at desc")
     end
+  end
+
+  def show
   end
 
   def new

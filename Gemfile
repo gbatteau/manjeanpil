@@ -39,4 +39,4 @@ group :production do
 end
 
 gem 'impressionist', git: 'https://github.com/jordanhudgens/impressionist'
-
+gem "font-awesome-rails"

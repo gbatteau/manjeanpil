@@ -93,8 +93,16 @@
 
   .metadata {
     display: grid;
-    grid-template-columns: 30px 1fr;
+    grid-template-columns: 60px 1fr;
     grid-gap: 10px;
     align-items: center;
+
+    .counter-label {
+      text-align: center;
+      background-color: red;
+      padding: 5px;
+      margin: 0px 5px;
+      color: white;
+    }
   }
 }

@@ -2,35 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.form-upload{
+.form-upload {
   border: 1px solid #aaa;
   height: auto;
   margin: auto 160px;
   padding: 30px;
   border-radius: 3px;
-  input[type='text']{
+  input[type='text'] {
     width: 100%;
   }
 }
 
-.d-none{
+.d-none {
   height: 0px;
   width: 0px;
 }
-.posts{
+.posts {
   margin: 5px 180px 10px;
-  .post{
+
+  .post {
     border: 1px solid #efefef;
-    margin: 60px 0;
+    margin: 20px;
     border-radius: 3px;
-    .user{
+    .user {
       border-bottom: 1px solid #efefef;
       display: flex;
-      .avatar{
+      .avatar {
         width: 40px;
         margin: 5px;
         height: 40px;
-        img{
+        img {
           width: 100%;
           border: 1px solid #efefef;
           border-radius: 50%;
@@ -38,7 +39,7 @@
           height: 41px;
         }
       }
-      .username{
+      .username {
         padding-top: 10px;
         color: #262626;
         font-size: 22px;
@@ -49,32 +50,44 @@
       }
     }
     .user .username {
-    padding-top: 9px;
-    color: #5f882b;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 19px;
-}
-    
-      .city-style{
-        color: black;
-        font-size: 13px;
-        font-weight: 200;
-      }
-    .main-image{
+      padding-top: 9px;
+      color: #5f882b;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 19px;
+    }
+
+    .city-style {
+      color: black;
+      font-size: 13px;
+      font-weight: 200;
+    }
+    .main-image {
       width: 100%;
       border-bottom: 1px solid #f4f4f4;
     }
-    .description{
+    .description {
       padding: 20px;
     }
   }
 }
 
-.delete{
+.delete {
   padding-top: 20px;
-  a{
+  a {
     font-size: 15px;
     text-decoration: underline;
   }
+}
+
+.post-list-item {
+  width: 340px;
+  min-width: 340px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  display: block;
+  margin-right: 5px;
+  border-bottom-width: 2px;
+  border-top-width: 2px;
+  border-radius: 20px;
 }

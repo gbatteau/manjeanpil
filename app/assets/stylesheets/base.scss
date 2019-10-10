@@ -335,3 +335,15 @@ img {
     background-color: $primary-dark !important;
   }
 }
+
+.primary-label {
+  background-color: $primary;
+  border: 1px solid $primary-dark;
+  color: white;
+  font-weight: 900;
+  border-radius: 3px;
+  padding: 4px 8px;
+  display: flex;
+  font-size: 1.5rem;
+  width: fit-content;
+}

@@ -1,19 +1,17 @@
-<div class="page-wrapper">
+<div class="page-wrapper post-show">
   <div class="container">
     <div class="well">
       <h2><%= @post.description %></h2>
-      <div>
+
+      <div class="metadata">
         <div class="primary-label"><%= @post.special_type %></div>
+
+        <div class="counter-label-show">
+          <div><%= fa_icon "fire" %></div>
+          <div><%= @post.impressions_count %></div>
+        </div>
       </div>
 
-      <div>
-        <div><%= fa_icon "utensils" %></div>
-      </div>
-
-      <div class="counter-label">
-        <div><%= fa_icon "fire" %></div>
-        <div><%= @post.impressions_count %></div>
-      </div>
 
       <div><%= @post.inspect %></div>
     </div>

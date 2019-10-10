@@ -4,6 +4,7 @@ ruby '2.3.0'
 
 gem 'rails', '5.0.0'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '3.4.0'
 gem 'sass-rails', '5.0.6'
 gem 'uglifier', '3.0.0'
@@ -17,7 +18,6 @@ gem 'devise', '4.2.0'
 gem 'paperclip', '4.3.6'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
   gem 'byebug', platform: :mri
   gem 'faker'
   gem 'rubocop', require: false
@@ -32,11 +32,6 @@ end
 
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
 gem 'google_distance_matrix'
-
-group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
-end
-
 gem 'impressionist', git: 'https://github.com/jordanhudgens/impressionist'
 gem "font-awesome-rails"
 gem 'pg_search'

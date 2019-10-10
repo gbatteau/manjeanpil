@@ -8,7 +8,7 @@ jQuery ->
   markersArray = []
   lat_field = parseFloat $('#place_latitude')[0].innerText
   lng_field = parseFloat $('#place_longitude')[0].innerText
-  
+
   window.initMap = ->
     if $('#map').size() > 0
       locationObject = {lat: lat_field, lng: lng_field}
@@ -21,5 +21,5 @@ jQuery ->
         position: locationObject,
         map: map,
       })
-      
+
       markersArray.push marker

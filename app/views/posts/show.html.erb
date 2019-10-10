@@ -1,3 +1,11 @@
+<div id="place_longitude">
+  <%= @post.longitude %>
+</div>
+
+<div id="place_latitude">
+  <%= @post.latitude %>
+</div>
+
 <div class="page-wrapper post-show">
   <div class="container">
     <div class="well">
@@ -12,6 +20,9 @@
         </div>
       </div>
 
+      <div class="map-wrapper">
+        <div id="map"></div>
+      </div>
 
       <div><%= @post.inspect %></div>
     </div>

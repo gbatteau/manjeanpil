@@ -109,6 +109,11 @@
 }
 
 .post-show {
+  .title {
+    font-size: 30px;
+    font-weight: 900;
+  }
+
   .metadata {
     display: flex;
     justify-content: space-between;
@@ -130,7 +135,7 @@
 
   .map-wrapper {
     #map {
-      height: 100px;
+      height: 250px;
       width: 100%;
     }
   }

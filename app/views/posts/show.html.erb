@@ -1,10 +1,20 @@
 <div class="page-wrapper">
   <div class="container">
-    <div class="card">
+    <div class="well">
       <h2><%= @post.description %></h2>
       <div>
         <div class="primary-label"><%= @post.special_type %></div>
       </div>
+
+      <div>
+        <div><%= fa_icon "utensils" %></div>
+      </div>
+
+      <div class="counter-label">
+        <div><%= fa_icon "fire" %></div>
+        <div><%= @post.impressions_count %></div>
+      </div>
+
       <div><%= @post.inspect %></div>
     </div>
   </div>

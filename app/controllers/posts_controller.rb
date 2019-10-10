@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    impressionist @post
   end
 
   def new

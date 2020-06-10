@@ -30,7 +30,7 @@ group :development do
   gem 'spring-watcher-listen', '2.0.0'
 end
 
-gem 'geocoder', '~> 1.5', '>= 1.5.1'
+gem 'geocoder', '~> 1.6'
 gem 'google_distance_matrix'
 gem 'impressionist', git: 'https://github.com/jordanhudgens/impressionist'
 gem "font-awesome-rails"
